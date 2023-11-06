@@ -26,7 +26,7 @@ void POX::init()
 
 void POX::jump()
 {
-	Print << fly_vy;
+	//Print << fly_vy;
 
 	fly_vy += 400 * share.delta;
 
@@ -260,7 +260,7 @@ void POX::collision()
 		}
 	}
 
-	Print << top;
+	//Print << top;
 	//Print << under;
 	//Print << right;
 	//Print << left;
