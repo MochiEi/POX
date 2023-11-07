@@ -2,6 +2,7 @@
 #include "Share.h"
 #include "pox.h"
 #include "Block.h"
+#include "boom.h"
 #include "Map.h"
 
 void BLOCK::init()
@@ -76,7 +77,7 @@ void BLOCK::spawn()
 	}
 
 	block_size = block_pos.size();
-	Print << block_pos.size();
+	//Print << block_pos.size();
 }
 
 void BLOCK::collision()

@@ -8,9 +8,7 @@ public:
 	void init();
 
 	void spawn();
-
 	void collision();
-
 	void movement();
 
 	void update();

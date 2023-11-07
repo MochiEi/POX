@@ -2,11 +2,13 @@
 #include "Share.h"
 #include "pox.h"
 #include "Block.h"
+#include "boom.h"
 #include "Map.h"
 
 Share share;
 POX pox;
 BLOCK block;
+BOOM boom;
 MAP map;
 
 void definition()
@@ -17,6 +19,7 @@ void definition()
 void init()
 {
 	pox.init();
+	boom.init();
 	block.init();
 	map.init();
 }
@@ -24,6 +27,7 @@ void init()
 void update()
 {
 	pox.upate();
+	boom.update();
 	block.update();
 	map.update();
 }
@@ -31,6 +35,7 @@ void update()
 void draw()
 {
 	pox.draw();
+	boom.draw();
 	block.draw();
 	map.draw();
 }

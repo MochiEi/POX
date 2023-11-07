@@ -2,6 +2,7 @@
 #include "Share.h"
 #include "pox.h"
 #include "Block.h"
+#include "boom.h"
 #include "Map.h"
 
 void POX::init()
@@ -268,13 +269,21 @@ void POX::collision()
 
 void POX::upate()
 {
-	collision();
-	walk();
-	jump();
+	if(pox_num != 0)
+	{
+		collision();
+		walk();
+		jump();
 
-	pox_hit = RectF(pox_pos, 40, 64);
-	pox_w = pox_hit.x + pox_hit.w;
-	pox_h = pox_hit.y + pox_hit.h;
+		pox_hit = RectF(pox_pos, 40, 64);
+		pox_w = pox_hit.x + pox_hit.w;
+		pox_h = pox_hit.y + pox_hit.h;
+	}
+
+	if (Key4.down())
+	{
+		pox_num = 0;
+	}
 }
 
 void POX::draw()
