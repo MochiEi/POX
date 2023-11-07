@@ -30,7 +30,53 @@ void BLOCK::spawn()
 		touch_left << false;
 
 		touch_box << false;
+
+		for (int i = 0; i < block_size; i++)
+		{
+			if(i != block_size - 1)
+			{
+				if (block_hit.back().intersects(block_hit[i]))
+				{
+					block_pos.pop_back();
+					block_hit.pop_back();
+					block_w.pop_back();
+					block_h.pop_back();
+
+					fixed_under.pop_back();
+					fixed_right.pop_back();
+					fixed_left.pop_back();
+
+					touch_right.pop_back();
+					touch_left.pop_back();
+
+					touch_box.pop_back();
+				}
+			}
+		}
+
+		for (int i = 0; i < map.wall_size; i++)
+		{
+			if (block_hit.back().intersects(map.wall[i]))
+			{
+				block_pos.pop_back();
+				block_hit.pop_back();
+				block_w.pop_back();
+				block_h.pop_back();
+
+				fixed_under.pop_back();
+				fixed_right.pop_back();
+				fixed_left.pop_back();
+
+				touch_right.pop_back();
+				touch_left.pop_back();
+
+				touch_box.pop_back();
+			}
+		}
 	}
+
+	block_size = block_pos.size();
+	Print << block_pos.size();
 }
 
 void BLOCK::collision()
@@ -102,11 +148,19 @@ void BLOCK::collision()
 						{
 							if (fixed_right[j]) {
 								fixed_right[i] = true;
-								block_pos[i].x = block_pos[j].x - block_hit[i].w + 1;
+
+								if(block_pos[i].x < block_pos[j].x)
+								{
+									block_pos[i].x = block_pos[j].x - block_hit[i].w + 1;
+								}
 							}
 							if (fixed_left[j]) {
 								fixed_left[i] = true;
-								block_pos[i].x = block_w[j] - 1;
+
+								if (block_pos[i].x > block_pos[j].x)
+								{
+									block_pos[i].x = block_w[j] - 1;
+								}
 							}
 						}
 					}
