@@ -269,8 +269,6 @@ void POX::collision()
 
 void POX::upate()
 {
-	if(pox_num != 0)
-	{
 		collision();
 		walk();
 		jump();
@@ -278,7 +276,6 @@ void POX::upate()
 		pox_hit = RectF(pox_pos, 40, 64);
 		pox_w = pox_hit.x + pox_hit.w;
 		pox_h = pox_hit.y + pox_hit.h;
-	}
 
 	if (Key4.down())
 	{

@@ -26,9 +26,13 @@ void init()
 
 void update()
 {
-	pox.upate();
+	if (pox.pox_num != 0)
+	{
+		pox.upate();
+		block.update();
+	}
+
 	boom.update();
-	block.update();
 	map.update();
 }
 

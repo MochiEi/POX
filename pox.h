@@ -20,6 +20,7 @@ public:
 	RectF pox_hit;
 	double pox_w;
 	double pox_h;
+	int pox_num;
 
 private:
 
@@ -30,7 +31,6 @@ private:
 	Array<TextureRegion> poxturn;
 
 	double	pox_move = 0;
-	int pox_num;
 
 	bool LookR = true;
 	bool LookL = false;
