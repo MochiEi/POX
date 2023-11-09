@@ -1,5 +1,4 @@
-﻿#include <Siv3D.hpp>
-#include "Share.h"
+﻿#include "Share.h"
 
 void Main()
 {

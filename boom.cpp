@@ -1,9 +1,4 @@
-﻿#include <Siv3D.hpp>
-#include "Share.h"
-#include "pox.h"
-#include "Block.h"
-#include "boom.h"
-#include "Map.h"
+﻿#include "boom.h"
 
 void BOOM::init()
 {

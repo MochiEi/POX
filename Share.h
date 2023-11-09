@@ -1,5 +1,9 @@
 ﻿#pragma once
 #include <Siv3D.hpp>
+#include "pox.h"
+#include "Block.h"
+#include "boom.h"
+#include "Map.h"
 
 typedef struct
 {
