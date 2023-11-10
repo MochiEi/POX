@@ -3,6 +3,7 @@
 Share share;
 POX pox;
 BLOCK block;
+BOTON boton;
 BOOM boom;
 MAP map;
 
@@ -16,6 +17,7 @@ void init()
 	pox.init();
 	boom.init();
 	block.init();
+	boton.init();
 	map.init();
 }
 
@@ -25,6 +27,7 @@ void update()
 	{
 		pox.upate();
 		block.update();
+		boton.update();
 	}
 
 	boom.update();
@@ -36,6 +39,7 @@ void draw()
 	pox.draw();
 	boom.draw();
 	block.draw();
+	boton.draw();
 	map.draw();
 }
 

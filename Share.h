@@ -4,6 +4,7 @@
 #include "Block.h"
 #include "boom.h"
 #include "Map.h"
+#include "Boton.h"
 
 typedef struct
 {

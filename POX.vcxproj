@@ -117,6 +117,7 @@
   <ItemGroup>
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="boom.cpp" />
+    <ClCompile Include="Boton.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="pox.cpp" />
@@ -322,6 +323,7 @@
   <ItemGroup>
     <ClInclude Include="Block.h" />
     <ClInclude Include="boom.h" />
+    <ClInclude Include="Boton.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="pox.h" />
     <ClInclude Include="Share.h" />
