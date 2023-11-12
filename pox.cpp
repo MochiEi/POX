@@ -206,9 +206,15 @@ void POX::collision()
 	under = false;
 	right = false;
 	left = false;
+	obstacle = false;
 
 	for (int i = 0; i < map.wall_size; i++)
 	{
+		if (pox_pos.y+2 >= map.wall_h[i] && pox_pos.y - 40 <= map.wall_h[i] && pox_pos.x <= map.wall_w[i] && pox_w >= map.wall[i].x)
+		{
+			obstacle = true;
+		}
+
 		if (pox_hit.intersects(map.wall[i]))
 		{
 			if (map.wall_h[i] - 5 <= pox_hit.y && pox_hit.y <= map.wall_h[i]) {
@@ -235,6 +241,11 @@ void POX::collision()
 
 	for (int i = 0; i < block.block_size; i++)
 	{
+		if (pox_pos.y + 2 >= block.block_h[i] && pox_pos.y - 40 <= block.block_h[i] && pox_pos.x <= block.block_w[i] && pox_w >= block.block_pos[i].x)
+		{
+			obstacle = true;
+		}
+
 		if (pox_hit.intersects(block.block_hit[i]))
 		{
 			if (block.block_h[i] - 5 <= pox_hit.y && pox_hit.y <= block.block_h[i]) {
@@ -260,6 +271,7 @@ void POX::collision()
 	//Print << under;
 	//Print << right;
 	//Print << left;
+	//Print << obstacle;
 }
 
 void POX::upate()
@@ -272,7 +284,7 @@ void POX::upate()
 		pox_w = pox_hit.x + pox_hit.w;
 		pox_h = pox_hit.y + pox_hit.h;
 
-	if (Key4.down())
+	if (phrase.Break_POX)
 	{
 		pox_num = 0;
 	}

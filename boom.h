@@ -7,16 +7,21 @@ public:
 
 	void init();
 
-	void exploding();
-	void collision();
-
 	void update();
 
 	void draw();
 
+
+	void exploding();
+
+	void collision();
+
+	void credit();
+
 private:
 
 	Array<TextureRegion> boom;
+	Array<TextureRegion> POX;
 	Array<Vec2> boom_pos;
 	Array<RectF> boom_hit;
 	size_t boom_size;
@@ -29,6 +34,10 @@ private:
 
 	Array<bool> under;
 	bool explosion;
+
+	bool end;
+	double a;
+	double time;
 };
 
 extern BOOM boom;

@@ -7,13 +7,16 @@ public:
 
 	void init();
 
-	void spawn();
-	void collision();
-	void movement();
-
 	void update();
 
 	void draw();
+
+
+	void spawn();
+
+	void collision();
+
+	void movement();
 
 
 	Array<TextureRegion> block;

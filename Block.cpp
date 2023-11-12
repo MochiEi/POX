@@ -8,7 +8,10 @@ void BLOCK::init()
 
 void BLOCK::spawn()
 {
-	if (Key1.down())
+	if (phrase.Create_BOX && pox.obstacle)
+		gimmick.obstacle = true;
+
+	if (phrase.Create_BOX && !pox.obstacle)
 	{
 		block_pos << Vec2(pox.pox_pos.x, pox.pox_pos.y - 41);
 
@@ -26,52 +29,34 @@ void BLOCK::spawn()
 		touch_left << false;
 
 		touch_box << false;
+	}
 
+	if (phrase.Break_BOX)
+	{
 		for (int i = 0; i < block_size; i++)
 		{
-			if(i != block_size - 1)
+			if (pox.pox_hit.x - 1 <= block_w[i] && pox.pox_hit.y - 1 <= block_h[i] && pox.pox_w + 1 >= block_hit[i].x && pox.pox_h + 1 >= block_hit[i].y)
 			{
-				if (block_hit.back().intersects(block_hit[i]))
-				{
-					block_pos.pop_back();
-					block_hit.pop_back();
-					block_w.pop_back();
-					block_h.pop_back();
+				block_pos.erase(block_pos.begin() + i);
 
-					fixed_under.pop_back();
-					fixed_right.pop_back();
-					fixed_left.pop_back();
+				block_hit.erase(block_hit.begin() + i);
+				block_w.erase(block_w.begin() + i);
+				block_h.erase(block_h.begin() + i);
 
-					touch_right.pop_back();
-					touch_left.pop_back();
+				fixed_under.erase(fixed_under.begin() + i);
+				fixed_right.erase(fixed_right.begin() + i);
+				fixed_left.erase(fixed_left.begin() + i);
 
-					touch_box.pop_back();
-				}
-			}
-		}
+				touch_right.erase(touch_right.begin() + i);
+				touch_left.erase(touch_left.begin() + i);
 
-		for (int i = 0; i < map.wall_size; i++)
-		{
-			if (block_hit.back().intersects(map.wall[i]))
-			{
-				block_pos.pop_back();
-				block_hit.pop_back();
-				block_w.pop_back();
-				block_h.pop_back();
+				touch_box.erase(touch_box.begin() + i);
 
-				fixed_under.pop_back();
-				fixed_right.pop_back();
-				fixed_left.pop_back();
-
-				touch_right.pop_back();
-				touch_left.pop_back();
-
-				touch_box.pop_back();
+				block_size = block_pos.size();
 			}
 		}
 	}
 
-	block_size = block_pos.size();
 	//Print << block_pos.size();
 }
 
@@ -114,10 +99,13 @@ void BLOCK::collision()
 		{
 			if (pox.pox_hit.y <= block_h[i] && block_h[i] <= pox.pox_hit.y + 5)
 				fixed_under[i] = true;
-			if (block_hit[i].y + 3 <= pox.pox_h && pox.pox_pos.x <= block_w[i] && block_w[i] - 5 <= pox.pox_pos.x)
+
+			if (block_hit[i].y + 3 <= pox.pox_h && pox.pox_pos.x <= block_w[i] && block_w[i] - 5 <= pox.pox_pos.x) {
 				touch_right[i] = true;
-			if (block_hit[i].y + 3 <= pox.pox_h && pox.pox_w <= block_hit[i].x + 5 && block_hit[i].x <= pox.pox_w)
+			}
+			if (block_hit[i].y + 3 <= pox.pox_h && pox.pox_w <= block_hit[i].x + 5 && block_hit[i].x <= pox.pox_w) {
 				touch_left[i] = true;
+			}
 		}
 
 		for (int j = 0; j < block_size; j++)
@@ -145,7 +133,7 @@ void BLOCK::collision()
 							if (fixed_right[j]) {
 								fixed_right[i] = true;
 
-								if(block_pos[i].x < block_pos[j].x)
+								if (block_pos[i].x < block_pos[j].x)
 								{
 									block_pos[i].x = block_pos[j].x - block_hit[i].w + 1;
 								}

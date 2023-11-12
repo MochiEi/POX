@@ -9,6 +9,7 @@ void BOOM::init()
 	Boom << Texture(U"example/pox/ex2.png", TextureDesc::Mipped);
 	Boom << Texture(U"example/pox/ex3.png", TextureDesc::Mipped);
 	Boom << Texture(U"example/pox/ex4.png", TextureDesc::Mipped);
+	Boom << Texture(U"example/pox/POX.png", TextureDesc::Mipped);
 
 	for (int i = 0; i < 1000; i++)
 	{
@@ -16,11 +17,15 @@ void BOOM::init()
 	}
 
 	boom_size = boom.size();
+
+	POX << Boom[5];
+
+	a = 0.0;
 }
 
 void BOOM::exploding()
 {
-	if (Key4.down())
+	if (phrase.Break_POX)
 	{
 		explosion = true;
 
@@ -117,6 +122,20 @@ void BOOM::collision()
 			}
 		}
 	}
+
+	end = true;
+
+	for(int i =0;i<boom_size;i++)
+	{
+		if (!under[i])
+			end = false;
+	}
+
+	if (end)
+		time += 1 * share.delta;
+
+	if(time >= 2)
+		a += 0.4 * share.delta;
 }
 
 void BOOM::update()
@@ -146,4 +165,12 @@ void BOOM::draw()
 			boom[i].draw(boom_pos[i]);
 		}
 	}
+}
+
+void BOOM::credit()
+{
+
+	POX[0].drawAt(400, 170, ColorF(1.0, a));
+	gimmick.font[2](U"End Game : ESC").drawAt(400, 250, ColorF(0.0, a));
+
 }

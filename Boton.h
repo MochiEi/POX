@@ -7,6 +7,8 @@ public:
 
 	void init();
 
+	void pushed();
+
 	void update();
 
 	void draw();
@@ -20,6 +22,8 @@ public:
 	Array<double> boton_h;
 
 	Array<bool> push;
+
+	Array<bool> phrase;
 
 private:
 

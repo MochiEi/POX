@@ -5,6 +5,8 @@
 #include "boom.h"
 #include "Map.h"
 #include "Boton.h"
+#include "Gimmick.h"
+#include "Phrase.h"
 
 typedef struct
 {
@@ -18,7 +20,9 @@ extern Share share;
 void definition();
 
 void init();
+
 void update();
+
 void draw();
 
 Vec2 move(Vec2 vec);

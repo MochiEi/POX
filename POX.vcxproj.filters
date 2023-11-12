@@ -162,6 +162,12 @@
     <ClCompile Include="Boton.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Gimmick.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Phrase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">
@@ -812,6 +818,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Boton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Gimmick.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Phrase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

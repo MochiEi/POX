@@ -7,20 +7,27 @@ public:
 
 	void init();
 
-	void jump();
-	void walk();
-	void collision();
-
 	void upate();
 
 	void draw();
 
 
-	Vec2 pox_pos{ 200, 520 };
+	void jump();
+
+	void walk();
+
+	void collision();
+
+
+	Vec2 pox_pos{ 100, 526 };
 	RectF pox_hit;
 	double pox_w;
 	double pox_h;
 	int pox_num;
+
+	double	pox_move = 0;
+
+	bool obstacle;
 
 private:
 
@@ -30,7 +37,6 @@ private:
 	Array<TextureRegion> poxjamp_mirror;
 	Array<TextureRegion> poxturn;
 
-	double	pox_move = 0;
 
 	bool LookR = true;
 	bool LookL = false;
